@@ -1,6 +1,6 @@
 {
   "name": "Priyansh",
-  "version": "10.1.1",
+  "version": "1.0.0",
   "description": "A simple Facebook Messenger Bot made by 𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭.",
   "main": "Priyansh.js",
   "engines": {
@@ -59,8 +59,7 @@
       "express": "^4.19.2",
       "extract-zip": "^2.0.1",
       "fb-tools": "0.0.1-security",
-      "fca-mahabub-004": "^1.0.0"
-      "fca-priyansh": "^18.0.0",
+      "fca-mahabub-004": "^1.0.0",
       "figlet": "^1.5.2",
       "form-data": "^4.0.0",
       "fs-extra": "^10.1.0",
