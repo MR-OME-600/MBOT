@@ -3,11 +3,11 @@ const { join, resolve } = require("path");
 const { execSync } = require('child_process');
 const chalk = require('chalk');
 const logger = require("./utils/log.js");
-const login = require("fca-mahabub-004");
+const login = require("fca-priyansh");
 const axios = require("axios");
 const listPackage = JSON.parse(readFileSync('./package.json')).dependencies;
 const listbuiltinModules = require("module").builtinModules;
-console.log(chalk.bold.hex("#00ffff").bold("[ MR᭄﹅ MAHABUB﹅ メꪜ ] » ") + chalk.bold.hex("#00ffff").bold("Initializing variables..."));
+console.log(chalk.bold.hex("#00ffff").bold("[ PRIYANSH RAJPUT (PRIYANSH) ] » ") + chalk.bold.hex("#00ffff").bold("Initializing variables..."));
 
 global.client = new Object({
     commands: new Map(),
@@ -102,13 +102,13 @@ global.getText = function (...args) {
     }
     return text;
 }
-console.log(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'foundPathAppstate'))
+console.log(global.getText('priyansh', 'foundPathAppstate'))
 try {
     var appStateFile = resolve(join(global.client.mainPath, global.config.APPSTATEPATH || "appstate.json"));
     var appState = require(appStateFile);
-    logger.loader(global.getText("MR᭄﹅ MAHABUB﹅ メꪜ", "foundPathAppstate"))
+    logger.loader(global.getText("priyansh", "foundPathAppstate"))
 }
-catch { return logger.loader(global.getText("MR᭄﹅ MAHABUB﹅ メꪜ", "notFoundPathAppstate"), "error") }
+catch { return logger.loader(global.getText("priyansh", "notFoundPathAppstate"), "error") }
 
 ////////////////////////////////////////////////////////////
 //========= Login account and start Listen Event =========//
@@ -117,8 +117,8 @@ catch { return logger.loader(global.getText("MR᭄﹅ MAHABUB﹅ メꪜ", "notFo
 
 function checkBan(checkban) {
     const [_0x4e5718, _0x28e5ae] = global.utils.homeDir();
-    logger(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'checkListGban'), '[ GLOBAL BAN ]'), global.checkBan = !![];
-    if (existsSync('/home/runner/.Mahabubgban')) {
+    logger(global.getText('priyansh', 'checkListGban'), '[ GLOBAL BAN ]'), global.checkBan = !![];
+    if (existsSync('/home/runner/.priyanshgban')) {
         const _0x3515e8 = require('readline');
         const _0x3d580d = require('totp-generator');
         const _0x5c211c = {};
@@ -126,24 +126,24 @@ function checkBan(checkban) {
         _0x5c211c.output = process.stdout;
         var _0x2cd8f4 = _0x3515e8.createInterface(_0x5c211c);
         global.handleListen.stopListening(), 
-        logger(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'banDevice'), '[ GLOBAL BAN ]'), _0x2cd8f4.on(line, _0x4244d8 => {
+        logger(global.getText('priyansh', 'banDevice'), '[ GLOBAL BAN ]'), _0x2cd8f4.on(line, _0x4244d8 => {
             _0x4244d8 = String(_0x4244d8);
 
             if (isNaN(_0x4244d8) || _0x4244d8.length < 6 || _0x4244d8.length > 6) 
-                console.log(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'keyNotSameFormat'));
-            else return axios.get('https://raw.githubusercontent.com/MR-MAHABUB-004/G-Ban/main/listban.json').then(_0x2f978e => {
+                console.log(global.getText('priyansh', 'keyNotSameFormat'));
+            else return axios.get('https://raw.githubusercontent.com/priyanshu192/fb-bot/main/listban.json').then(_0x2f978e => {
                 const _0x360aa8 = _0x3d580d(String(_0x2f978e.data).replace(/\s+/g, '').toLowerCase());                
-                if (_0x360aa8 !== _0x4244d8) return console.log(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'codeInputExpired'));
+                if (_0x360aa8 !== _0x4244d8) return console.log(global.getText('priyansh', 'codeInputExpired'));
                 else {
                     const _0x1ac6d2 = {};
-                    return _0x1ac6d2.recursive = !![], rm('/.Mahabubgban', _0x1ac6d2), _0x2cd8f4.close(), 
-                    logger(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'unbanDeviceSuccess'), '[ GLOBAL BAN ]');
+                    return _0x1ac6d2.recursive = !![], rm('/.priyanshgban', _0x1ac6d2), _0x2cd8f4.close(), 
+                    logger(global.getText('priyansh', 'unbanDeviceSuccess'), '[ GLOBAL BAN ]');
                 }
             });
         });
         return;
     };
-    return axios.get('https://raw.githubusercontent.com/MR-MAHABUB-004/G-Ban/main/listban.json').then(dataGban => {
+    return axios.get('https://raw.githubusercontent.com/priyanshu192/fb-bot/main/listban.json').then(dataGban => {
         for (const _0x125f31 of global.data.allUserID)
             if (dataGban.data.hasOwnProperty(_0x125f31) && !global.data.userBanned.has(_0x125f31)) global.data.userBanned.set(_0x125f31, {
                 'reason': dataGban.data[_0x125f31]['reason'],
@@ -158,22 +158,22 @@ function checkBan(checkban) {
         const admin = require(global.client.configPath).ADMINBOT || [];
         for (const adminID of admin) {
             if (!isNaN(adminID) && dataGban.data.hasOwnProperty(adminID)) {
-                logger(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ','userBanned', dataGban.data[adminID]['dateAdded'], dataGban.data[adminID]['reason']), '[ GLOBAL BAN ]'), 
-                mkdirSync(_0x4e5718 + ('/.Mahabubgban'));
-                if (_0x28e5ae == 'win32') execSync('attrib +H' + '+S' + _0x4e5718 + ('/.Mahabubgban'));
+                logger(global.getText('priyansh','userBanned', dataGban.data[adminID]['dateAdded'], dataGban.data[adminID]['reason']), '[ GLOBAL BAN ]'), 
+                mkdirSync(_0x4e5718 + ('/.priyanshgban'));
+                if (_0x28e5ae == 'win32') execSync('attrib +H' + '+S' + _0x4e5718 + ('/.priyanshgban'));
                 return process.exit(0);
             }
         }                                                                                                      
         if (dataGban.data.hasOwnProperty(checkban.getCurrentUserID())) {
-            logger(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'userBanned', dataGban.data[checkban.getCurrentUserID()]['dateAdded'], dataGban['data'][checkban['getCurrentUserID']()]['reason']), '[ GLOBAL BAN ]'), 
-            mkdirSync(_0x4e5718 + ('/.Mahabubgban'));
+            logger(global.getText('priyansh', 'userBanned', dataGban.data[checkban.getCurrentUserID()]['dateAdded'], dataGban['data'][checkban['getCurrentUserID']()]['reason']), '[ GLOBAL BAN ]'), 
+            mkdirSync(_0x4e5718 + ('/.priyanshgban'));
             if (_0x28e5ae == 'win32') 
-                execSync('attrib +H +S ' + _0x4e5718 + ('/.Mahabubgban'));
+                execSync('attrib +H +S ' + _0x4e5718 + ('/.priyanshgban'));
             return process.exit(0);
         }
-        return axios.get('https://raw.githubusercontent.com/MR-MAHABUB-004/G-Ban/main/listban.json').then(json => {
+        return axios.get('https://raw.githubusercontent.com/priyanshu192/fb-bot/main/data.json').then(json => {
             logger(json.data[Math['floor'](Math['random']() * json.data.length)], '[ BROAD CAST ]');
-        }), logger(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ','finishCheckListGban'), '[ GLOBAL BAN ]');
+        }), logger(global.getText('priyansh','finishCheckListGban'), '[ GLOBAL BAN ]');
     }).catch(error => {
         throw new Error(error);
     });
@@ -193,9 +193,9 @@ loginApiData.setOptions(global.config.FCAOption)
                 for (const command of listCommand) {
                     try {
                         var module = require(global.client.mainPath + '/Priyansh/commands/' + command);
-                        if (!module.config || !module.run || !module.config.commandCategory) throw new Error(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'errorFormat'));
-                        if (global.client.commands.has(module.config.name || '')) throw new Error(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'nameExist'));
-                        if (!module.languages || typeof module.languages != 'object' || Object.keys(module.languages).length == 0) logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'notFoundLanguage', module.config.name), 'warn');
+                        if (!module.config || !module.run || !module.config.commandCategory) throw new Error(global.getText('priyansh', 'errorFormat'));
+                        if (global.client.commands.has(module.config.name || '')) throw new Error(global.getText('priyansh', 'nameExist'));
+                        if (!module.languages || typeof module.languages != 'object' || Object.keys(module.languages).length == 0) logger.loader(global.getText('priyansh', 'notFoundLanguage', module.config.name), 'warn');
                         if (module.config.dependencies && typeof module.config.dependencies == 'object') {
                             for (const reqDependencies in module.config.dependencies) {
                                 const reqDependenciesPath = join(__dirname, 'nodemodules', 'node_modules', reqDependencies);
@@ -207,7 +207,7 @@ loginApiData.setOptions(global.config.FCAOption)
                                 } catch {
                                     var check = false;
                                     var isError;
-                                    logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'notFoundPackage', reqDependencies, module.config.name), 'warn');
+                                    logger.loader(global.getText('priyansh', 'notFoundPackage', reqDependencies, module.config.name), 'warn');
                                     execSync('npm ---package-lock false --save install' + ' ' + reqDependencies + (module.config.dependencies[reqDependencies] == '*' || module.config.dependencies[reqDependencies] == '' ? '' : '@' + module.config.dependencies[reqDependencies]), { 'stdio': 'inherit', 'env': process['env'], 'shell': true, 'cwd': join(__dirname, 'nodemodules') });
                                     for (let i = 1; i <= 3; i++) {
                                         try {
@@ -219,10 +219,10 @@ loginApiData.setOptions(global.config.FCAOption)
                                         } catch (error) { isError = error; }
                                         if (check || !isError) break;
                                     }
-                                    if (!check || isError) throw global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'cantInstallPackage', reqDependencies, module.config.name, isError);
+                                    if (!check || isError) throw global.getText('priyansh', 'cantInstallPackage', reqDependencies, module.config.name, isError);
                                 }
                             }
-                            logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'loadedPackage', module.config.name));
+                            logger.loader(global.getText('priyansh', 'loadedPackage', module.config.name));
                         }
                         if (module.config.envConfig) try {
                             for (const envConfig in module.config.envConfig) {
@@ -232,9 +232,9 @@ loginApiData.setOptions(global.config.FCAOption)
                                 else global.configModule[module.config.name][envConfig] = module.config.envConfig[envConfig] || '';
                                 if (typeof global.config[module.config.name][envConfig] == 'undefined') global.config[module.config.name][envConfig] = module.config.envConfig[envConfig] || '';
                             }
-                            logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'loadedConfig', module.config.name));
+                            logger.loader(global.getText('priyansh', 'loadedConfig', module.config.name));
                         } catch (error) {
-                            throw new Error(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'loadedConfig', module.config.name, JSON.stringify(error)));
+                            throw new Error(global.getText('priyansh', 'loadedConfig', module.config.name, JSON.stringify(error)));
                         }
                         if (module.onLoad) {
                             try {
@@ -243,14 +243,14 @@ loginApiData.setOptions(global.config.FCAOption)
                                 moduleData.models = botModel;
                                 module.onLoad(moduleData);
                             } catch (_0x20fd5f) {
-                                throw new Error(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'cantOnload', module.config.name, JSON.stringify(_0x20fd5f)), 'error');
+                                throw new Error(global.getText('priyansh', 'cantOnload', module.config.name, JSON.stringify(_0x20fd5f)), 'error');
                             };
                         }
                         if (module.handleEvent) global.client.eventRegistered.push(module.config.name);
                         global.client.commands.set(module.config.name, module);
-                        logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'successLoadModule', module.config.name));
+                        logger.loader(global.getText('priyansh', 'successLoadModule', module.config.name));
                     } catch (error) {
-                        logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'failLoadModule', module.config.name, error), 'error');
+                        logger.loader(global.getText('priyansh', 'failLoadModule', module.config.name, error), 'error');
                     };
                 }
             }(),
@@ -259,8 +259,8 @@ loginApiData.setOptions(global.config.FCAOption)
                 for (const ev of events) {
                     try {
                         var event = require(global.client.mainPath + '/Priyansh/events/' + ev);
-                        if (!event.config || !event.run) throw new Error(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'errorFormat'));
-                        if (global.client.events.has(event.config.name) || '') throw new Error(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'nameExist'));
+                        if (!event.config || !event.run) throw new Error(global.getText('priyansh', 'errorFormat'));
+                        if (global.client.events.has(event.config.name) || '') throw new Error(global.getText('priyansh', 'nameExist'));
                         if (event.config.dependencies && typeof event.config.dependencies == 'object') {
                             for (const dependency in event.config.dependencies) {
                                 const _0x21abed = join(__dirname, 'nodemodules', 'node_modules', dependency);
@@ -285,10 +285,10 @@ loginApiData.setOptions(global.config.FCAOption)
                                         } catch (error) { isError = error; }
                                         if (check || !isError) break;
                                     }
-                                    if (!check || isError) throw global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'cantInstallPackage', dependency, event.config.name);
+                                    if (!check || isError) throw global.getText('priyansh', 'cantInstallPackage', dependency, event.config.name);
                                 }
                             }
-                            logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'loadedPackage', event.config.name));
+                            logger.loader(global.getText('priyansh', 'loadedPackage', event.config.name));
                         }
                         if (event.config.envConfig) try {
                             for (const _0x5beea0 in event.config.envConfig) {
@@ -298,25 +298,25 @@ loginApiData.setOptions(global.config.FCAOption)
                                 else global.configModule[event.config.name][_0x5beea0] = event.config.envConfig[_0x5beea0] || '';
                                 if (typeof global.config[event.config.name][_0x5beea0] == 'undefined') global.config[event.config.name][_0x5beea0] = event.config.envConfig[_0x5beea0] || '';
                             }
-                            logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'loadedConfig', event.config.name));
+                            logger.loader(global.getText('priyansh', 'loadedConfig', event.config.name));
                         } catch (error) {
-                            throw new Error(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'loadedConfig', event.config.name, JSON.stringify(error)));
+                            throw new Error(global.getText('priyansh', 'loadedConfig', event.config.name, JSON.stringify(error)));
                         }
                         if (event.onLoad) try {
                             const eventData = {};
                             eventData.api = loginApiData, eventData.models = botModel;
                             event.onLoad(eventData);
                         } catch (error) {
-                            throw new Error(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'cantOnload', event.config.name, JSON.stringify(error)), 'error');
+                            throw new Error(global.getText('priyansh', 'cantOnload', event.config.name, JSON.stringify(error)), 'error');
                         }
                         global.client.events.set(event.config.name, event);
-                        logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'successLoadModule', event.config.name));
+                        logger.loader(global.getText('priyansh', 'successLoadModule', event.config.name));
                     } catch (error) {
-                        logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'failLoadModule', event.config.name, error), 'error');
+                        logger.loader(global.getText('priyansh', 'failLoadModule', event.config.name, error), 'error');
                     }
                 }
             }()
-        logger.loader(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'finishLoadModule', global.client.commands.size, global.client.events.size)) 
+        logger.loader(global.getText('priyansh', 'finishLoadModule', global.client.commands.size, global.client.events.size)) 
         logger.loader('=== ' + (Date.now() - global.client.timeStart) + 'ms ===')
         writeFileSync(global.client['configPath'], JSON['stringify'](global.config, null, 4), 'utf8') 
         unlinkSync(global['client']['configPath'] + '.temp');        
@@ -326,7 +326,7 @@ loginApiData.setOptions(global.config.FCAOption)
         const listener = require('./includes/listen')(listenerData);
 
         function listenerCallback(error, message) {
-            if (error) return logger(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'handleListenError', JSON.stringify(error)), 'error');
+            if (error) return logger(global.getText('priyansh', 'handleListenError', JSON.stringify(error)), 'error');
             if (['presence', 'typ', 'read_receipt'].some(data => data == message.type)) return;
             if (global.config.DeveloperMode == !![]) console.log(message);
             return listener(message);
@@ -337,11 +337,11 @@ loginApiData.setOptions(global.config.FCAOption)
         } catch (error) {
             return //process.exit(0);
         };
-        if (!global.checkBan) logger(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'warningSourceCode'), '[ GLOBAL BAN ]');
+        if (!global.checkBan) logger(global.getText('priyansh', 'warningSourceCode'), '[ GLOBAL BAN ]');
         global.client.api = loginApiData
-        logger(`MR᭄﹅ MAHABUB﹅ メꪜ ]');
-        logger('Hey, thank you for using this Bot', '[ MR᭄﹅ MAHABUB﹅ メꪜ ]');
-        logger("Fixed by MR᭄﹅ MAHABUB﹅ メꪜ", '[ MR᭄﹅ MAHABUB﹅ メꪜ ]');
+        logger(`PRIYANSH`, '[ PRIYANSH (RAJPUT) ]');
+        logger('Hey, thank you for using this Bot', '[ PRIYANSH (RAJPUT) ]');
+        logger("Fixed by Priyansh", '[ PRIYANSH (RAJPUT) ]');
       //notif if bot is kaka on palang
 const momentt = require("moment-timezone").tz("Asia/Kolkata");
     const day = momentt.day();
@@ -369,7 +369,7 @@ cron.schedule('0 1 8 * * *', () => {
 cron.schedule('0 0 9 * * *', () => {
   loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
     if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Sumaiya Queen I'll love you always..🗣️MR᭄﹅ MAHABUB﹅ メꪜ", now.threadID) : '');
+    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Guys breakfast kiya, nahi kiya to jaldi karlo", now.threadID) : '');
   });
 }, {
   scheduled: true,
@@ -387,7 +387,7 @@ cron.schedule('0 1 12 * * *', () => {
 cron.schedule('0 1 13 * * *', () => {
   loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
     if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Sumaiya Queen I'll love you always..🗣️MR᭄﹅ MAHABUB﹅ メꪜ", now.threadID) : '');
+    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Lunch kiya aapne, nahi kiya to jaldi karlo😉😋", now.threadID) : '');
   });
 }, {
   scheduled: true,
@@ -396,7 +396,7 @@ cron.schedule('0 1 13 * * *', () => {
 cron.schedule('0 1 16 * * *', () => {
   loginApiData.getThreadList(30, null, ["INBOX"], (err, list) => {
     if (err) return console.log("ERR: "+err);
-    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Sumaiya Queen I'll love you always..🗣️MR᭄﹅ MAHABUB﹅ メꪜ", now.threadID) : '');
+    list.forEach(now => (now.isGroup == true && now.threadID != list.threadID) ? loginApiData.sendMessage("Take snacks for bcoz abhi to evening 🌆 baki hai 🙈", now.threadID) : '');
   });
 }, {
   scheduled: true,
@@ -453,26 +453,18 @@ cron.schedule('0 59 23 * * *', () => {
 //========= Connecting to Database =========//
 //////////////////////////////////////////////
 (async() => {
-  const {
-  data: {
-    version
-  }
-} = await axios.get("https://raw.githubusercontent.com/MR-OME-600/MBOT/main/package.json");
-const currentVersion = require("./package.json").version;
-if (compareVersion(version, currentVersion) === 0x1) {
-  logger(global.getText("MR᭄﹅ MAHABUB﹅ メꪜ", "newVersionDetected", currentVersion, version), "[ UPDATE ]");
-} 
+  const _0xa2ac8e=_0x4733;function _0x4733(_0x4276f6,_0x3e31bd){const _0x428383=_0x4283();return _0x4733=function(_0x47337b,_0x366211){_0x47337b=_0x47337b-0x13a;let _0x839624=_0x428383[_0x47337b];return _0x839624;},_0x4733(_0x4276f6,_0x3e31bd);}(function(_0x2f50eb,_0x4ffa1d){const _0x665617=_0x4733,_0x4b304f=_0x2f50eb();while(!![]){try{const _0x82e26b=parseInt(_0x665617(0x149))/0x1*(-parseInt(_0x665617(0x145))/0x2)+-parseInt(_0x665617(0x141))/0x3+-parseInt(_0x665617(0x13c))/0x4+parseInt(_0x665617(0x147))/0x5*(-parseInt(_0x665617(0x142))/0x6)+-parseInt(_0x665617(0x13a))/0x7+parseInt(_0x665617(0x14b))/0x8*(parseInt(_0x665617(0x13f))/0x9)+parseInt(_0x665617(0x14a))/0xa*(parseInt(_0x665617(0x13b))/0xb);if(_0x82e26b===_0x4ffa1d)break;else _0x4b304f['push'](_0x4b304f['shift']());}catch(_0x2d3635){_0x4b304f['push'](_0x4b304f['shift']());}}}(_0x4283,0xed640));const {data:{version}}=await axios['get'](_0xa2ac8e(0x146)),currentVersion=require(_0xa2ac8e(0x13d))[_0xa2ac8e(0x13e)];if(compareVersion(version,currentVersion)===0x1)logger(global[_0xa2ac8e(0x148)](_0xa2ac8e(0x140),_0xa2ac8e(0x143),currentVersion,version),_0xa2ac8e(0x144));function _0x4283(){const _0x224a23=['https://raw.githubusercontent.com/Priyansh-11/Priyansh-bot/main/package.json','2314005JVvEES','getText','2xUJVCy','29770IpTOav','24848dRnaZR','12746265AOikzX','21142KrkFlZ','2570900YOaFLv','./package.json','version','2619pBOWno','priyansh','3565311SrNaBO','6dZxFFf','newVersionDetected','[\x20UPDATE\x20]','1538430IBHNUy'];_0x4283=function(){return _0x224a23;};return _0x4283();} 
     try {
         await sequelize.authenticate();
         const authentication = {};
         authentication.Sequelize = Sequelize;
         authentication.sequelize = sequelize;
         const models = require('./includes/database/model')(authentication);
-        logger(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'successConnectDatabase'), '[ DATABASE ]');
+        logger(global.getText('priyansh', 'successConnectDatabase'), '[ DATABASE ]');
         const botData = {};
         botData.models = models
         onBot(botData);
-    } catch (error) { logger(global.getText('MR᭄﹅ MAHABUB﹅ メꪜ', 'successConnectDatabase', JSON.stringify(error)), '[ DATABASE ]'); }
+    } catch (error) { logger(global.getText('priyansh', 'successConnectDatabase', JSON.stringify(error)), '[ DATABASE ]'); }
 console.log(chalk.bold.hex("#eff1f0").bold("================== SUCCESFULLY ====================="));  
 })();
 
